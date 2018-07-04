@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="165px"
+        android:background="@color/HyundaiBlue"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/layoutBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/imgBack"
+                android:layout_width="30px"
+                android:layout_height="54px"
+                android:layout_gravity="center"
+                android:layout_marginLeft="48px"
+                android:layout_marginRight="48px"
+                android:background="@color/HyundaiBlue"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/navibar_back" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="284dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center_vertical|center_horizontal|center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Smart Entry OTP 확인"
+            android:textColor="#FFFFFF"
+            android:textSize="48px" />
+
+        <RelativeLayout
+            android:id="@+id/layoutOption"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/imgOptions"
+                android:layout_width="70px"
+                android:layout_height="70px"
+                android:layout_gravity="center"
+                android:layout_marginLeft="28px"
+                android:layout_marginRight="28px"
+                android:background="#00000000"
+                android:scaleType="centerInside"
+                android:src="@drawable/navibar_setting" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="453px"
+        android:layout_marginTop="484px"
+        android:orientation="vertical"
+        android:paddingLeft="68px"
+        android:paddingRight="68px">
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Token 1"
+            android:textColor="#FFFFFF"
+            android:textSize="48px" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250px"
+            android:layout_marginTop="48px"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="108px"
+                    android:layout_height="51dp"
+                    android:layout_below="@+id/tvOTP1"
+                    android:layout_marginTop="-35dp"
+                    android:alpha="1"
+                    android:background="@drawable/cast_expanded_controller_actionbar_bg_gradient_light" />
+
+                <TextView
+                    android:id="@+id/tvOTP1"
+                    android:layout_width="108px"
+                    android:layout_height="200px"
+                    android:layout_marginRight="10px"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/HyundaiBlue"
+                    android:textSize="150px" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="108px"
+                    android:layout_height="51dp"
+                    android:layout_below="@+id/tvOTP2"
+                    android:layout_marginTop="-35dp"
+                    android:alpha="1"
+                    android:background="@drawable/cast_expanded_controller_actionbar_bg_gradient_light" />
+
+                <TextView
+                    android:id="@+id/tvOTP2"
+                    android:layout_width="108px"
+                    android:layout_height="200px"
+                    android:layout_marginRight="10px"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text="2"
+                    android:textColor="@color/HyundaiBlue"
+                    android:textSize="150px" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="108px"
+                    android:layout_height="51dp"
+                    android:layout_below="@+id/tvOTP3"
+                    android:layout_marginTop="-35dp"
+                    android:alpha="1"
+                    android:background="@drawable/cast_expanded_controller_actionbar_bg_gradient_light" />
+
+                <TextView
+                    android:id="@+id/tvOTP3"
+                    android:layout_width="108px"
+                    android:layout_height="200px"
+                    android:layout_marginRight="10px"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text="3"
+                    android:textColor="@color/HyundaiBlue"
+                    android:textSize="150px" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="108px"
+                    android:layout_height="51dp"
+                    android:layout_below="@+id/tvOTP4"
+                    android:layout_marginTop="-35dp"
+                    android:alpha="1"
+                    android:background="@drawable/cast_expanded_controller_actionbar_bg_gradient_light" />
+
+                <TextView
+                    android:id="@+id/tvOTP4"
+                    android:layout_width="108px"
+                    android:layout_height="200px"
+                    android:layout_marginRight="20px"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text="4"
+                    android:textColor="@color/HyundaiBlue"
+                    android:textSize="150px" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="108px"
+                    android:layout_height="51dp"
+                    android:layout_below="@+id/tvOTP5"
+                    android:layout_marginTop="-35dp"
+                    android:alpha="1"
+                    android:background="@drawable/cast_expanded_controller_actionbar_bg_gradient_light" />
+
+                <TextView
+                    android:id="@+id/tvOTP5"
+                    android:layout_width="108px"
+                    android:layout_height="200px"
+                    android:layout_marginRight="10px"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text="5"
+                    android:textColor="@color/HyundaiBlue"
+                    android:textSize="150px" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/imageView13"
+                    android:layout_width="108px"
+                    android:layout_height="51dp"
+                    android:layout_below="@+id/tvOTP6"
+                    android:layout_marginTop="-35dp"
+                    android:alpha="1"
+                    android:background="@drawable/cast_expanded_controller_actionbar_bg_gradient_light" />
+
+                <TextView
+                    android:id="@+id/tvOTP6"
+                    android:layout_width="108px"
+                    android:layout_height="200px"
+                    android:layout_marginRight="10px"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text="6"
+                    android:textColor="@color/HyundaiBlue"
+                    android:textSize="150px" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/imageView14"
+                    android:layout_width="108px"
+                    android:layout_height="51dp"
+                    android:layout_below="@+id/tvOTP7"
+                    android:layout_marginTop="-35dp"
+                    android:alpha="1"
+                    android:background="@drawable/cast_expanded_controller_actionbar_bg_gradient_light" />
+
+                <TextView
+                    android:id="@+id/tvOTP7"
+                    android:layout_width="108px"
+                    android:layout_height="200px"
+                    android:layout_marginRight="10px"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text="7"
+                    android:textColor="@color/HyundaiBlue"
+                    android:textSize="150px" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/imageView15"
+                    android:layout_width="108px"
+                    android:layout_height="51dp"
+                    android:layout_below="@+id/tvOTP8"
+                    android:layout_marginTop="-35dp"
+                    android:alpha="1"
+                    android:background="@drawable/cast_expanded_controller_actionbar_bg_gradient_light" />
+
+                <TextView
+                    android:id="@+id/tvOTP8"
+                    android:layout_width="108px"
+                    android:layout_height="200px"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:text="8"
+                    android:textColor="@color/HyundaiBlue"
+                    android:textSize="150px" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ProgressBar
+                    android:id="@+id/progressBarTime"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="95px"
+                    android:layout_height="95px"
+                    android:layout_gravity="start"
+                    android:background="@drawable/circle_shape"
+                    android:indeterminate="false"
+                    android:max="59"
+                    android:progress="0"
+                    android:progressDrawable="@drawable/circular_progress_bar"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/tvSec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/progressBarTime"
+                    android:layout_alignLeft="@+id/progressBarTime"
+                    android:layout_alignRight="@+id/progressBarTime"
+                    android:layout_alignTop="@+id/progressBarTime"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#ffffff"
+                    android:textSize="48px" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 초"
+                android:textColor="#FFFFFF"
+                android:textSize="42px" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" 남았습니다."
+                android:textColor="@color/Grey"
+                android:textSize="42px" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="0dp">
+
+            <Button
+                android:id="@+id/btnNextOTP"
+                android:layout_width="match_parent"
+                android:layout_height="120px"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="24px"
+                android:layout_marginLeft="48px"
+                android:layout_marginRight="48px"
+                android:layout_weight="1"
+                android:background="#00aad2"
+                android:text="다음 코드"
+                android:textColor="#FFFFFF"
+                android:textSize="48px" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

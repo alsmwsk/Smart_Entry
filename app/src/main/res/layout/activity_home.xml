@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="165px"
+        android:background="@color/HyundaiBlue"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:id="@+id/layoutBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/imgBack"
+                android:layout_width="30px"
+                android:layout_height="54px"
+                android:layout_gravity="center"
+                android:layout_marginLeft="48px"
+                android:layout_marginRight="48px"
+                android:background="@color/HyundaiBlue"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/navibar_back" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imageView16"
+            android:layout_width="352px"
+            android:layout_height="78px"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bluelink_logo" />
+
+        <RelativeLayout
+            android:id="@+id/layoutOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/imgOptions"
+                android:layout_width="70px"
+                android:layout_height="70px"
+                android:layout_gravity="center"
+                android:layout_marginLeft="28px"
+                android:layout_marginRight="28px"
+                android:background="#00000000"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/navibar_setting" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="1560px"
+        android:gravity="top"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <LinearLayout
+            android:id="@+id/layoutTop"
+            android:layout_width="match_parent"
+            android:layout_height="642px"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="75px"
+                android:gravity="bottom|center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="80px"
+                    android:layout_weight="1"
+                    android:text="Connected Key"
+                    android:textColor="#FFFFFF"
+                    android:textSize="60px" />
+
+                <FrameLayout
+                    android:id="@+id/layoutHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:padding="20px">
+
+                    <ImageButton
+                        android:id="@+id/imgHint"
+                        android:layout_width="40px"
+                        android:layout_height="40px"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/btn_question" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/imgConnectedKeyOTP"
+                        android:layout_width="276px"
+                        android:layout_height="276px"
+                        android:layout_gravity="bottom|center"
+                        android:layout_marginLeft="52px"
+                        android:background="#00000000"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/smart_entry_otp" />
+
+                    <ImageButton
+                        android:id="@+id/imgConnectedKeyOn"
+                        android:layout_width="424px"
+                        android:layout_height="424px"
+                        android:layout_gravity="bottom|center"
+                        android:background="#00000000"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/smart_entry_on" />
+
+                    <ImageButton
+                        android:id="@+id/imgConnectedKeyOff"
+                        android:layout_width="276px"
+                        android:layout_height="276px"
+                        android:layout_gravity="bottom|center"
+                        android:layout_marginRight="52px"
+                        android:background="#00000000"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/smart_entry_off" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layoutTooltip"
+                    android:layout_width="800px"
+                    android:layout_height="407px"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="140px"
+                    android:background="@drawable/bg_tooltip_dark"
+                    android:visibility="invisible">
+
+                    <ImageButton
+                        android:id="@+id/imgTooltipClose"
+                        android:layout_width="60px"
+                        android:layout_height="60px"
+                        android:layout_marginLeft="714px"
+                        android:layout_marginTop="43px"
+                        android:background="#00000000"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/btn_close_tooltip_dark" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Connected Key란?"
+                            android:textAlignment="center"
+                            android:textColor="@color/ActiveBlue"
+                            android:textSize="56px" />
+
+                        <TextView
+                            android:id="@+id/textView11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="43px"
+                            android:text="블루링크 앱을 이용하여\n키 공유와 차량 출입/시동/주행이\n가능한 서비스 입니다."
+                            android:textAlignment="center"
+                            android:textColor="#dce2e9"
+                            android:textSize="42px" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutMiddle"
+            android:layout_width="match_parent"
+            android:layout_height="524px"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/btnDoorLock"
+                        android:layout_width="match_parent"
+                        android:layout_height="132px"
+                        android:layout_gravity="center"
+                        android:background="#00000000"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/remote_lock" />
+
+                    <TextView
+                        android:id="@+id/tvDoorLock"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16px"
+                        android:gravity="center"
+                        android:text="문 잠금"
+                        android:textColor="#FFFFFF"
+                        android:textSize="48px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="40px">
+
+                    <ImageButton
+                        android:id="@+id/btnEmergencyLight"
+                        android:layout_width="match_parent"
+                        android:layout_height="132px"
+                        android:layout_gravity="center"
+                        android:background="#00000000"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/remote_lights" />
+
+                    <TextView
+                        android:id="@+id/tvEmergencyLight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16px"
+                        android:gravity="center"
+                        android:text="비상등"
+                        android:textColor="#FFFFFF"
+                        android:textSize="48px" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnEngineStart"
+                android:layout_width="468px"
+                android:layout_height="468px"
+                android:layout_gravity="center"
+
+                android:background="@drawable/remote_circle_center"
+                android:gravity="center"
+                android:scaleType="centerInside"
+                android:text="Engine\nStart"
+                android:textColor="#FFFFFF"
+                android:textSize="54px" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/btnDoorUnlock"
+                        android:layout_width="match_parent"
+                        android:layout_height="132px"
+                        android:layout_gravity="center"
+                        android:background="#00000000"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/remote_unlock" />
+
+                    <TextView
+                        android:id="@+id/tvDoorUnlock"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16px"
+                        android:gravity="center"
+                        android:text="문 열기"
+                        android:textColor="#FFFFFF"
+                        android:textSize="48px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="40px">
+
+                    <ImageButton
+                        android:id="@+id/btnEmergencyLightWithHorn"
+                        android:layout_width="match_parent"
+                        android:layout_height="132px"
+                        android:layout_gravity="center"
+                        android:background="#00000000"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/remote_hornlight" />
+
+                    <TextView
+                        android:id="@+id/tvEmergencyLightWithHorn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16px"
+                        android:gravity="center"
+                        android:text="비상등 + 경적"
+                        android:textColor="#FFFFFF"
+                        android:textSize="48px" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutBottom"
+            android:layout_width="match_parent"
+            android:layout_height="320px"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="40px"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/btnAirConditional"
+                        android:layout_width="match_parent"
+                        android:layout_height="132px"
+                        android:layout_gravity="center"
+                        android:background="#00000000"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/remote_hvac_settings" />
+
+                    <TextView
+                        android:id="@+id/tvAirConditional"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16px"
+                        android:gravity="center"
+                        android:text="공조 설정"
+                        android:textColor="#FFFFFF"
+                        android:textSize="48px" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="468px"
+                android:layout_height="wrap_content"
+
+                android:background="#00000000"
+                android:gravity="center"
+                android:scaleType="centerInside" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="40px"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/btnEngineStop"
+                        android:layout_width="match_parent"
+                        android:layout_height="132px"
+                        android:layout_gravity="center"
+                        android:background="#00000000"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/remote_charge_stop" />
+
+                    <TextView
+                        android:id="@+id/tvEngineStop"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16px"
+                        android:gravity="center"
+                        android:text="Engine Stop"
+                        android:textColor="#FFFFFF"
+                        android:textSize="48px" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
