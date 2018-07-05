@@ -147,11 +147,12 @@ public class LoginActivity extends Activity {
                         finish();
                     }
                     idx = url.indexOf("code");
-                    code = url.substring(idx + 5, idx + 27); // 인증 코드 획득
+                    code = url.substring(idx + 5, idx + 27); // 인증 코드 획득 2. Oauth CODE/로그인 url
 
                     new Thread() {
                         public void run() { //
                             try {
+                                // 7. 로그인 요청/ AccessToken 요청
                                 URL url = new URL(POST_TOKEN_URL); // 인증 코드를 통해 엑세스 토큰을 획득 시도
                                 Log.d("Msg", "get authentication code:" + code);
 
@@ -175,6 +176,7 @@ public class LoginActivity extends Activity {
                                 connection.connect();
 
                                 int result = connection.getResponseCode();
+                                //8. 로그인 성공/ AccessToken 전달
                                 if (result == 200) { // 획득 성공했다면, 돌려받은 json 내용을 분석하여 액세스 토큰을 획득
                                     BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
 
@@ -183,6 +185,7 @@ public class LoginActivity extends Activity {
 
 
                                     // JSON 결과 분석, 저장
+                                    // TOKEN 분석
                                     getResultJSON(reader);
                                 } else {
                                     Log.d("Msg", "액세스 토큰 획득 실패 / error:" + connection.getResponseMessage());
@@ -201,6 +204,7 @@ public class LoginActivity extends Activity {
                 }
             }
         });
+        //1. OAUTH2 인증요청
         webView.setWebChromeClient(new WebChromeClient());
         webView.setNetworkAvailable(true);
 
@@ -221,6 +225,9 @@ public class LoginActivity extends Activity {
         }
     }
 
+    // 9. Phone Device 등록 요청 - 1
+    // Google cloud Message 서비스를 이용하여 GCM 에 디바이스 정보 등록 후에
+    // ccsp Server에 디바이스 정보 등록
     void registPushId(){
         new AsyncTask<Void,Void,String>() {
             // 스레드에 의해 처리될 내용을 담기 위한 함수
@@ -254,7 +261,7 @@ public class LoginActivity extends Activity {
         }.execute(null, null, null); // 파라미터 3개를 NULL로 준 이유?
     }
 
-
+    // 9. Phone Device 등록 요청 - 2
     private void setRegisterPushDevice() {
         new Thread() {
             @Override
@@ -290,6 +297,7 @@ public class LoginActivity extends Activity {
                         int result = connection.getResponseCode();
                         Log.d("Msg", String.valueOf(result));
                         Log.d("Msg", connection.getResponseMessage());
+                        // 10. DeviceId 전달
                         if (result == 200) {
 
                             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
@@ -370,6 +378,7 @@ public class LoginActivity extends Activity {
 
     }
 
+    //인터넷 연결상태 체크
     private void checkInternetInfo(){
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
@@ -379,6 +388,7 @@ public class LoginActivity extends Activity {
         }
     }
 
+    //안드로이드 디바이스 고유식별정보 생성
     private static String createUUID(Context context) {
       /*  final TelephonyManager tm = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
 
@@ -415,7 +425,7 @@ public class LoginActivity extends Activity {
             Log.d("Msg", "전체내용 : " + page);
             try {
                 JSONObject jsonObject = new JSONObject(page.toString());
-                String tokenString = jsonObject.getString("access_token"); // 획득한 Access Token 값.
+                String tokenString = jsonObject.getString("access_token"); // 획득한 Access Token 값. ACCESS TOKEN 획득
                 String tokenType = jsonObject.getString("token_type");
                 String refresh_token = jsonObject.getString("refresh_token");
                 String tokenExpires = jsonObject.getString("expires_in");
@@ -426,7 +436,7 @@ public class LoginActivity extends Activity {
                 userInfo.setRefreshAccessToken(refresh_token);
                 userInfo.setAccessTokenExpires(tokenExpires);
 
-                URL url = new URL(GET_USER_PROFILE_URL);
+                URL url = new URL(GET_USER_PROFILE_URL); // USER PROFILE 요청
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setConnectTimeout(60000);
                 connection.setReadTimeout(60000);

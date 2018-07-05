@@ -90,6 +90,7 @@ public class SettingActivity extends AppCompatActivity {
         startActivityForResult(intent, 0);
     }
 
+    //사용자 관리
     public void btnConnectedKeyUserManagement(View v){
         webView.setVisibility(View.VISIBLE);
 
@@ -127,6 +128,7 @@ public class SettingActivity extends AppCompatActivity {
         }
     }
 
+    //로그아웃 구현
     public void btnLogout(View v){
 
         android.app.AlertDialog.Builder alt_bld = new android.app.AlertDialog.Builder(SettingActivity.this);
@@ -145,7 +147,7 @@ public class SettingActivity extends AppCompatActivity {
         alert.setTitle("");
         alert.show();
     }
-
+    //QRCode 인증 후 OTP 생성 프로그램 설치
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
         if(requestCode == 0) {
 

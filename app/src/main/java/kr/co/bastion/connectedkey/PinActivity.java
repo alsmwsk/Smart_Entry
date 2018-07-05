@@ -178,6 +178,7 @@ public class PinActivity extends Activity  {
     }
 
     public void setPinNumber(String value){
+        //btnDelete이거나 DeleteLayout이거나..
         if (value.equals("")){
             if (numCount > 0){
                 numCount--;
@@ -202,6 +203,7 @@ public class PinActivity extends Activity  {
                 pin.deleteCharAt(numCount);
             }
         } else {
+            // 초기값 -1?
             if (numCount < 4){
                 pin.append(value);
                 switch(numCount){
@@ -224,6 +226,7 @@ public class PinActivity extends Activity  {
                         tv4.setText("*");
                         isEditable = false;
                         try {
+                            // AsyncTask 호출..
                             new myAsyncTask().execute(pin.toString(),Type);
                         } catch (Exception e){
                             Log.d("Msg", "Error : "+e.getMessage());
@@ -250,6 +253,8 @@ public class PinActivity extends Activity  {
 
             dialog = ProgressDialog.show(PinActivity.this, "","원격제어 명령 전송중", true);
         }
+        //params 부분은 어디에 있는가??
+        //2. PIN Code 검증 결과
         @Override
         protected Boolean doInBackground(String... params) {
             try {
@@ -337,6 +342,7 @@ public class PinActivity extends Activity  {
             return isPinRight;
         }
 
+        // 2. PIN Code 검증 결과(pinactivity)
         @Override
         protected void onPostExecute(Boolean result) {
             super.onPostExecute(result);

@@ -101,7 +101,20 @@ public class VehicleListActivity extends AppCompatActivity {
         scrollView_VehicleList = findViewById(R.id.ScrollView_VehicleList);
 
 
+
         //소유자에 의한 차량공유 계약자 -> 사용자
+        //1.차량공유요청 URL 호출
+        //2.차량공유요청 URL 호출 결과
+        //어떤 차량을 누구에게 공유할 것인지 그리고 스마트 엔트리 권한부여 또는 안함
+        //3.사용자 차량 공규 허가 요청
+        //4.공유 요청 push 전달(id)서버->공유대상자
+        //5.공유 Share Id 전달 서버->계약자(소유자)
+        //6.공유 수락 URL 요청 공유대상자->서버
+        //7.공유 수락 URL 정보 전달 서버 -> 공유대상자
+        //8. 공유 수락 URL 화면 표시 공유대상자 -> 서버
+        //9. 공유 CarID 전달 서버 -> 공유대상자
+        //10. 공유 결과 push 전달 서버 -> 계약자
+        //웹뷰에서 결과 받아온다.
         LayoutCarShareByOwner = findViewById(R.id.LayoutCarShareByOwner);
         LayoutCarShareByOwner.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,7 +156,7 @@ public class VehicleListActivity extends AppCompatActivity {
             }
         });
 
-        //원격제어
+        //원격제어 웹뷰에서 결과받아온다.
         LayoutCarRemote = findViewById(R.id.LayoutCarRemote);
         LayoutCarRemote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -156,7 +169,7 @@ public class VehicleListActivity extends AppCompatActivity {
                             URL url = new URL(POST_PUSH_DEVICE_MAPPING_URL); // 이것을 왜 하는 걸까?
 
                             JSONObject jsonObject = new JSONObject();
-                            jsonObject.accumulate("vehicleId", userInfo.getVehicleId(0));
+                            jsonObject.accumulate("vehicleId", userInfo.getVehicleId(0)); // 사용자가 클릭한 차량을 동적으로 처리 해줘야되는데..
 
                             String json = jsonObject.toString();
                             Log.d("Msg",json);
@@ -282,6 +295,7 @@ public class VehicleListActivity extends AppCompatActivity {
         });
 
         //등록된 차량이 없을 경우
+        //3. 신규 차량 등록 요청 - 1
         if (!isVehicleRegistered){
             linearLayout_NoVehicle.setVisibility(View.VISIBLE);
             scrollView_VehicleList.setVisibility(View.INVISIBLE);
@@ -296,11 +310,12 @@ public class VehicleListActivity extends AppCompatActivity {
                         public void onPageFinished(WebView view, String url) {
                             super.onPageFinished(view, url);
                             System.out.println(url);
+                            //4. 신규 차량 등록 요청 결과
                             if (url.contains(REDIRECT_URI)) {
 
                                 webView.setVisibility(View.INVISIBLE);
                                 int idx = url.indexOf("car_id");
-                                String id = url.substring(idx + 7); // car id
+                                String id = url.substring(idx + 7); // car id 가져오기
 
                                 if (idx < 0) {
                                     Toast.makeText(getApplicationContext(), "차량 등록 실패", Toast.LENGTH_LONG).show();
@@ -331,6 +346,7 @@ public class VehicleListActivity extends AppCompatActivity {
             });
         }//등록된 차량이 없을 경우
         // 등록된 차량이 있을 경우
+        // 4. 신규 차량 등록 요청 - 2
         else {
             linearLayout_NoVehicle.setVisibility(View.INVISIBLE);
             scrollView_VehicleList.setVisibility(View.VISIBLE);
@@ -356,7 +372,7 @@ public class VehicleListActivity extends AppCompatActivity {
                                 finish();
                             } else {
                                 Log.d("Msg","car ID : "+id);
-                                carID = id;
+                                carID = id; // 차량id 받아오기.
                                 onRestart(); // 다시 목록이 불러와지는지 확인이 필요함.
                             }
                         }
@@ -430,9 +446,10 @@ public class VehicleListActivity extends AppCompatActivity {
         userName = userInfo.getUserName();
     }
 
+    //1. 차량 목록 요청
     //차량목록 가져오기
     private Boolean getVehicleList(){
-        isExistVehicles = false;
+        isExistVehicles = false; // 차량이 존재하는지 여부
 
         new Thread() {
             public void run() {
@@ -445,11 +462,15 @@ public class VehicleListActivity extends AppCompatActivity {
                     connection.setRequestProperty("Authorization", userInfo.getUserAccessToken());
                     connection.setRequestProperty("Content-Type", "application/json");
                     connection.setRequestProperty("ccsp-device-id", userInfo.getDeviceID());
-                    connection.setRequestProperty("ccsp-application-id", CLIENT_ID);
+                    connection.setRequestProperty("ccsp-application-id", CLIENT_ID); // Device ID하나만 있으면 되는거아닌가?
                     connection.setRequestMethod("GET");
+                    //누락 되어있음connection.connect();
 
+                    // 2. 차량 목록 요청 결과
+                    // 성공하면 result = 200 실패하면 그 밖에 값
                     int result = connection.getResponseCode();
                     try{
+
                         if (result == 200) {
                             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
 
@@ -466,10 +487,10 @@ public class VehicleListActivity extends AppCompatActivity {
                             {
                                 JSONObject jsonObject = new JSONObject(page);
                                 String resCode = jsonObject.getString("resCode");
-                                String resMsg = jsonObject.getString("resMsg");
+                                String resMsg = jsonObject.getString("resMsg"); // 여기에 등록된 차량정보가 온다.
                                 String msgID = jsonObject.getString("msgID");
 
-                                JSONArray jsonArray = new JSONArray(resMsg);
+                                JSONArray jsonArray = new JSONArray(resMsg); // resMsg는 jsonObject인데 JSONArray이 치환?
                                 int count = jsonArray.length();
                                 userInfo.setVehicleCount(count);
                                 if (count < 1){
@@ -477,9 +498,9 @@ public class VehicleListActivity extends AppCompatActivity {
                                 } else {
                                     for (int i = 0; i < count-1; i++){
                                         JSONObject vehicleJsonObject = jsonArray.getJSONObject(i);
-                                        String vehicleId = vehicleJsonObject.getString("vehicleId");
-                                        String vehicleName = vehicleJsonObject.getString("vehicleName");
-                                        String vehicleNickname = vehicleJsonObject.getString("nickname");
+                                        String vehicleId = vehicleJsonObject.getString("vehicleId"); // 차량id의 형식 ??
+                                        String vehicleName = vehicleJsonObject.getString("vehicleName"); // 이거는 벤츠,소나타?
+                                        String vehicleNickname = vehicleJsonObject.getString("nickname"); // 닉네임은 무엇인가?
 
                                         userInfo.setVehicleId(vehicleId,i);
                                         userInfo.setVehicleName(vehicleName,i);

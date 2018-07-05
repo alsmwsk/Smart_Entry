@@ -70,6 +70,7 @@ public class HomeActivity extends AppCompatActivity {
     RelativeLayout layoutTooltip;
     ImageButton imgTooltipClose;
 
+    //문열기 부분이 누락되어있음..
     Button btnEngineStart;
     ImageButton btnEngineStop, btnEmergencyLight, btnEmergencyLightWithHorn, btnAirConditional, btnDoorLock, btnDoorUnlock;
     TextView tvEngineStop, tvEmergencyLight, tvEmergencyLightWithHorn, tvAirConditional, tvDoorLock, tvDoorUnlock;
@@ -190,6 +191,7 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     }
 
+                    // 1. PIN Code 검증 요청
                     case R.id.imgConnectedKeyOn : {
                         if (!isPinActivityShown) {
                             isPinActivityShown = true;
@@ -352,6 +354,7 @@ public class HomeActivity extends AppCompatActivity {
 
         @Override
         protected Integer doInBackground(Integer... params) {
+            // 중복된 명령을 30초 내에 실행했는지 판별하는것..
             if (lastCommand != params[0]) {
                 lastCommand = params[0];
                 lastCommandTime = System.currentTimeMillis();
@@ -407,6 +410,9 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    //PINCode 인증후 명령요청하는 부분
+    //key On과 key Off의 요청 url이 POST_DOOR_CLOSE_URL로 되어있음..
+    //5. SmartEntry On요청 -> 서버
     private static void sendCommand(int command){
         switch (command){
             case R.id.imgConnectedKeyOn :{
