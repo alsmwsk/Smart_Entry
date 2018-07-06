@@ -78,6 +78,7 @@ public class SettingActivity extends AppCompatActivity {
 
     }
 
+    // 언제 호출되는 메소드..?
     public void btnConnectedKeyRegistration(View v){ // QR code
         if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
@@ -148,6 +149,8 @@ public class SettingActivity extends AppCompatActivity {
         alert.show();
     }
     //QRCode 인증 후 OTP 생성 프로그램 설치
+    //QRCode는 AVN에 보이는거 찍으면 되는데.. 만약에 가진 차량이 2개가 있다면 entry 등록절차가 어떻게 되는건가?
+    // 한번 등록하기만 하면 다른 차량에 대해서도 권한이 생기는건가?
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
         if(requestCode == 0) {
 

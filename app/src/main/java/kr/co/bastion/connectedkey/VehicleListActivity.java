@@ -127,7 +127,7 @@ public class VehicleListActivity extends AppCompatActivity {
                         if (url.contains(REDIRECT_URI)) {
 
                             webView.setVisibility(View.INVISIBLE);
-                            int idx = url.indexOf("share_id");
+                            int idx = url.indexOf("share_id"); // 계약자가 받은 share_id값.. 그러면 공유대상자가 받은 share_id값은 어디에??
                             String id = url.substring(idx + 9);
 
                             if (idx < 0) {

@@ -258,6 +258,7 @@ public class PinActivity extends Activity  {
         @Override
         protected Boolean doInBackground(String... params) {
             try {
+                // PIN Code 발급 요청
                 URL url = new URL(PUT_ISSUE_CONTROL_TOKEN);
                 String enteredPin = params[0];
                 type = params[1];
