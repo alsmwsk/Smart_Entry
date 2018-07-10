@@ -9,6 +9,8 @@ OTPClass
 String Key와 시간정보를 조합하여 OTP를 생성하는 부분입니다.
  */
 
+// 비트연산자 & 이진수로 표현해서 각 숫자의 비트가 같으면 1 아니면 0
+
 
 public class OTPClass {
     private static long DISTANCE = 60000; // 60sec

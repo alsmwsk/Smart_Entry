@@ -1,1 +1,1 @@
-include ':app', ':core-3.3.0'
+include ':app', ':core-3.3.0', ':entry_registration', ':Entry_Registration', ':Entry_registration'
