@@ -11,6 +11,9 @@
             <option value="$PROJECT_DIR$/Entry_registration" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/core-3.3.0" />
+            <option value="$PROJECT_DIR$/loginpart" />
+            <option value="$PROJECT_DIR$/remote_control_part" />
+            <option value="$PROJECT_DIR$/vehiclelistpart" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
