@@ -38,11 +38,12 @@
                     android:layout_marginRight="48px"
                     android:background="@color/HyundaiBlue"
                     android:scaleType="centerInside"
-                    app:srcCompat="@drawable/navibar_back" />
+                    app:srcCompat="@drawable/navibar_back"
+                    />
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/text_setting"
                 android:layout_width="284dp"
                 android:layout_height="52dp"
                 android:layout_gravity="center_vertical|center_horizontal|center"
@@ -80,7 +81,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/registration"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -88,13 +89,14 @@
                     android:layout_marginLeft="48px"
                     android:layout_marginTop="48px"
                     android:layout_weight="1"
-                    android:onClick="btnConnectedKeyRegisteration"
+                    android:onClick="btnConnectedKeyRegistration"
                     android:text="Connected Key 등록"
                     android:textColor="#FFFFFF"
-                    android:textSize="48px" />
+                    android:textSize="48px"
+                    />
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/img_reg"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center"
@@ -121,7 +123,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/text_management"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -135,7 +137,7 @@
                     android:textSize="48px" />
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/img_management"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center"

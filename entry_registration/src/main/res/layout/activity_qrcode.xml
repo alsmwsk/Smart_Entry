@@ -57,14 +57,14 @@
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/info_reg"
+        android:id="@+id/textView"
         android:layout_width="284dp"
         android:layout_height="52dp"
         android:layout_gravity="center_vertical|center_horizontal|center"
         android:layout_weight="1"
         android:gravity="center"
         android:text="Connected Key 등록"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/HyundaiBlue"
         android:textSize="48px" />
 
     <RelativeLayout
@@ -90,8 +90,7 @@
       android:background="@color/Background"
       android:orientation="vertical"
       app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-      tools:layout_editor_absoluteX="107dp"
-      >
+      tools:layout_editor_absoluteX="107dp">
 
     <TextView
         android:id="@+id/textView15"
@@ -101,8 +100,7 @@
         android:paddingLeft="48px"
         android:text="AVN에 표출된 QR 코드를 인식하세요."
         android:textColor="#8f8e94"
-        android:textSize="42px"
-        />
+        android:textSize="42px" />
   </LinearLayout>
 
   <com.google.zxing.client.android.ViewfinderView
